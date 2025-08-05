@@ -1,3 +1,4 @@
+import 'package:facebooktask/peopleyoumayknow.dart';
 import 'package:facebooktask/post.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +97,7 @@ class _FacbookpageState extends State<Facbookpage> {
                                 fit: BoxFit.fill,
                               ),)),
                             Container(
-                              width: 310,
+                              width: 330,
                               height: 30,
                               decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey.shade400,width: 2),
@@ -104,6 +105,7 @@ class _FacbookpageState extends State<Facbookpage> {
                               ),
                               child: Text("  What's on your mind?",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                             ),
+                            Spacer(),
                             IconButton(onPressed: (){}, icon: Icon(Icons.camera_alt,color: Colors.green,size: 30,)),
 
                           ]
@@ -131,6 +133,8 @@ class _FacbookpageState extends State<Facbookpage> {
                                 ),
                       Divider(color: Colors.grey.shade400,thickness: 6,),
                       Post(),
+                      Divider(color: Colors.grey.shade400,thickness: 6,),
+                      Peopleyoumayknow(),
                       Divider(color: Colors.grey.shade400,thickness: 6,),
                       Post(),
                       Divider(color: Colors.grey.shade400,thickness: 6,),
