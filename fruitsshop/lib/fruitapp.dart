@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fruitsshop/vegtablepage.dart';
 
 import 'categorie.dart';
+import 'categoriepage.dart';
 import 'item.dart';
 
 class Fruitapp extends StatefulWidget {
@@ -24,13 +26,8 @@ class _FruitappState extends State<Fruitapp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
-      debugShowCheckedModeBanner: false,
-
-
-      home: Scaffold(
-        backgroundColor: Colors.red.shade50,
+    return Scaffold(
+        backgroundColor: Colors.grey.shade50,
         floatingActionButton: SizedBox(
           height: 80,
           width: 80,
@@ -103,32 +100,49 @@ class _FruitappState extends State<Fruitapp> {
                 ),
               ),
               SizedBox(height: 20,),
-              Row(
-                children: [
-                  Text("Categories",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                  Spacer(),
-                  Icon(Icons.arrow_forward_ios,size: 30,color: Colors.grey)
-                ]
-              ),
-              SizedBox(height: 20,),
-             SizedBox(
-               height: 90,
-               width: double.infinity,
-
-               child: ListView.builder(itemBuilder:(context,index){
-                 return Padding(
-                   padding:  EdgeInsets.all(8.0),
-                   child: Categorie(icon: icons[index],bgColor: bgColors[index],name: cateimages[index],),
-                 );
-               },itemCount: cateimages.length,shrinkWrap: true,scrollDirection: Axis.horizontal,),
-             ),
-              SizedBox(height: 20,),
-              Row(
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                      context,
+                  MaterialPageRoute(builder: (context)=>Categoriepage())
+                  );
+                },
+                child: Row(
                   children: [
-                    Text("Featured Products",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    Text("Categories",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Spacer(),
                     Icon(Icons.arrow_forward_ios,size: 30,color: Colors.grey)
                   ]
+                ),
+              ),
+              SizedBox(height: 20,),
+              Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: SizedBox(
+                   height: 120,
+                   child: ListView.separated(itemBuilder:(context,index){
+                     return Categorie(icon: icons[index],bgColor: bgColors[index],name: cateimages[index],);
+                   },itemCount: cateimages.length,scrollDirection: Axis.horizontal,
+                     separatorBuilder: (context, index) => const SizedBox(width: 8),
+                   ),
+                 ),
+               ),
+
+              SizedBox(height: 20,),
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                      context,
+                  MaterialPageRoute(builder: (context)=>Vegtablepage())
+                  );
+                },
+                child: Row(
+                    children: [
+                      Text("Featured Products",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios,size: 30,color: Colors.grey)
+                    ]
+                ),
               ),
 
               SizedBox(
@@ -150,8 +164,6 @@ class _FruitappState extends State<Fruitapp> {
             ]
           ),
         ) ,
-      )
-
-    );
+      );
   }
 }
