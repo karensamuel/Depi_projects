@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruitsshop/vegtablepage.dart';
 
+import 'animates_heart.dart';
 import 'categoriepage.dart';
 import 'fruitapp.dart';
+import 'loginpage.dart';
 
 void main() {
   runApp( MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Fruitapp(), // start page
+      home: Loginpage(), // start page
     );
   }
 }
